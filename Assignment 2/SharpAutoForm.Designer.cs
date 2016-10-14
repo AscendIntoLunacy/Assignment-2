@@ -33,7 +33,6 @@
             this.SubtotalLabel = new System.Windows.Forms.Label();
             this.SalesTaxLabel = new System.Windows.Forms.Label();
             this.TotalLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TradeInLabel = new System.Windows.Forms.Label();
             this.AmountDueLabel = new System.Windows.Forms.Label();
             this.BasePriceTextBox = new System.Windows.Forms.TextBox();
@@ -72,12 +71,13 @@
             this.PearlizedRadioButton = new System.Windows.Forms.RadioButton();
             this.CustomDetailingRadioButton = new System.Windows.Forms.RadioButton();
             this.ColoursGroupBox = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ColoursListBox = new System.Windows.Forms.ListBox();
+            this.CarPictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.AdditionalItemsGroupBox.SuspendLayout();
             this.ExteriorFinishesGroupBox.SuspendLayout();
             this.ColoursGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // BasePriceLabel
@@ -124,14 +124,6 @@
             this.TotalLabel.Size = new System.Drawing.Size(87, 32);
             this.TotalLabel.TabIndex = 4;
             this.TotalLabel.Text = "Total:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(277, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(526, 222);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // TradeInLabel
             // 
@@ -234,7 +226,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 45);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // editToolStripMenuItem
@@ -245,7 +237,7 @@
             this.fontToolStripMenuItem,
             this.colourToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 45);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(80, 48);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // helpToolStripMenuItem
@@ -253,7 +245,7 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(92, 45);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(92, 48);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // exitToolStripMenuItem
@@ -261,6 +253,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // calculateToolStripMenuItem
             // 
@@ -291,6 +284,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // ArialToolStripMenuItem
             // 
@@ -304,24 +298,28 @@
             this.comicSansToolStripMenuItem1.Name = "comicSansToolStripMenuItem1";
             this.comicSansToolStripMenuItem1.Size = new System.Drawing.Size(380, 46);
             this.comicSansToolStripMenuItem1.Text = "Comic Sans";
+            this.comicSansToolStripMenuItem1.Click += new System.EventHandler(this.comicSansToolStripMenuItem1_Click);
             // 
             // LucidaToolStripMenuItem
             // 
             this.LucidaToolStripMenuItem.Name = "LucidaToolStripMenuItem";
             this.LucidaToolStripMenuItem.Size = new System.Drawing.Size(380, 46);
             this.LucidaToolStripMenuItem.Text = "Helvetica";
+            this.LucidaToolStripMenuItem.Click += new System.EventHandler(this.LucidaToolStripMenuItem_Click);
             // 
             // lucidaToolStripMenuItem1
             // 
             this.lucidaToolStripMenuItem1.Name = "lucidaToolStripMenuItem1";
             this.lucidaToolStripMenuItem1.Size = new System.Drawing.Size(380, 46);
             this.lucidaToolStripMenuItem1.Text = "Lucida";
+            this.lucidaToolStripMenuItem1.Click += new System.EventHandler(this.lucidaToolStripMenuItem1_Click);
             // 
             // TimesNewRomanToolStripMenuItem
             // 
             this.TimesNewRomanToolStripMenuItem.Name = "TimesNewRomanToolStripMenuItem";
             this.TimesNewRomanToolStripMenuItem.Size = new System.Drawing.Size(380, 46);
             this.TimesNewRomanToolStripMenuItem.Text = "Times New Roman";
+            this.TimesNewRomanToolStripMenuItem.Click += new System.EventHandler(this.TimesNewRomanToolStripMenuItem_Click);
             // 
             // colourToolStripMenuItem
             // 
@@ -338,31 +336,31 @@
             // redToolStripMenuItem
             // 
             this.redToolStripMenuItem.Name = "redToolStripMenuItem";
-            this.redToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
+            this.redToolStripMenuItem.Size = new System.Drawing.Size(232, 46);
             this.redToolStripMenuItem.Text = "Red";
             // 
             // blueToolStripMenuItem
             // 
             this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
-            this.blueToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
+            this.blueToolStripMenuItem.Size = new System.Drawing.Size(232, 46);
             this.blueToolStripMenuItem.Text = "Blue";
             // 
             // greenToolStripMenuItem
             // 
             this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
-            this.greenToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
+            this.greenToolStripMenuItem.Size = new System.Drawing.Size(232, 46);
             this.greenToolStripMenuItem.Text = "Green";
             // 
             // orangeToolStripMenuItem
             // 
             this.orangeToolStripMenuItem.Name = "orangeToolStripMenuItem";
-            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
+            this.orangeToolStripMenuItem.Size = new System.Drawing.Size(232, 46);
             this.orangeToolStripMenuItem.Text = "Orange";
             // 
             // yellowToolStripMenuItem
             // 
             this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
-            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(327, 46);
+            this.yellowToolStripMenuItem.Size = new System.Drawing.Size(232, 46);
             this.yellowToolStripMenuItem.Text = "Yellow";
             // 
             // AdditionalItemsGroupBox
@@ -453,7 +451,7 @@
             // 
             // ColoursGroupBox
             // 
-            this.ColoursGroupBox.Controls.Add(this.listBox1);
+            this.ColoursGroupBox.Controls.Add(this.ColoursListBox);
             this.ColoursGroupBox.Location = new System.Drawing.Point(923, 349);
             this.ColoursGroupBox.Name = "ColoursGroupBox";
             this.ColoursGroupBox.Size = new System.Drawing.Size(221, 312);
@@ -461,23 +459,31 @@
             this.ColoursGroupBox.TabStop = false;
             this.ColoursGroupBox.Text = "Colours";
             // 
-            // listBox1
+            // ColoursListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 31;
-            this.listBox1.Items.AddRange(new object[] {
-            "Red",
-            "Blue",
-            "Yellow",
-            "Green",
-            "Orange",
-            "Silver",
+            this.ColoursListBox.FormattingEnabled = true;
+            this.ColoursListBox.ItemHeight = 31;
+            this.ColoursListBox.Items.AddRange(new object[] {
             "Black",
+            "Blue",
+            "Orange",
+            "Red",
             "White"});
-            this.listBox1.Location = new System.Drawing.Point(6, 37);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(209, 252);
-            this.listBox1.TabIndex = 0;
+            this.ColoursListBox.Location = new System.Drawing.Point(6, 37);
+            this.ColoursListBox.Name = "ColoursListBox";
+            this.ColoursListBox.Size = new System.Drawing.Size(209, 252);
+            this.ColoursListBox.Sorted = true;
+            this.ColoursListBox.TabIndex = 0;
+            this.ColoursListBox.SelectedIndexChanged += new System.EventHandler(this.ColoursListBox_SelectedIndexChanged);
+            // 
+            // CarPictureBox
+            // 
+            this.CarPictureBox.Location = new System.Drawing.Point(277, 72);
+            this.CarPictureBox.Name = "CarPictureBox";
+            this.CarPictureBox.Size = new System.Drawing.Size(526, 222);
+            this.CarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CarPictureBox.TabIndex = 5;
+            this.CarPictureBox.TabStop = false;
             // 
             // SharpAutoForm
             // 
@@ -496,7 +502,7 @@
             this.Controls.Add(this.BasePriceTextBox);
             this.Controls.Add(this.AmountDueLabel);
             this.Controls.Add(this.TradeInLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.CarPictureBox);
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.SalesTaxLabel);
             this.Controls.Add(this.SubtotalLabel);
@@ -506,7 +512,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SharpAutoForm";
             this.Text = "Auto Center";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.AdditionalItemsGroupBox.ResumeLayout(false);
@@ -514,6 +519,7 @@
             this.ExteriorFinishesGroupBox.ResumeLayout(false);
             this.ExteriorFinishesGroupBox.PerformLayout();
             this.ColoursGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CarPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -526,7 +532,7 @@
         private System.Windows.Forms.Label SubtotalLabel;
         private System.Windows.Forms.Label SalesTaxLabel;
         private System.Windows.Forms.Label TotalLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox CarPictureBox;
         private System.Windows.Forms.Label TradeInLabel;
         private System.Windows.Forms.Label AmountDueLabel;
         private System.Windows.Forms.TextBox BasePriceTextBox;
@@ -565,7 +571,7 @@
         private System.Windows.Forms.RadioButton PearlizedRadioButton;
         private System.Windows.Forms.RadioButton StandardRadioButton;
         private System.Windows.Forms.GroupBox ColoursGroupBox;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ColoursListBox;
     }
 }
 
