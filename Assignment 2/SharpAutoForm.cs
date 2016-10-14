@@ -16,5 +16,10 @@ namespace Assignment_2
         {
             InitializeComponent();
         }
+
+        private void ArialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
